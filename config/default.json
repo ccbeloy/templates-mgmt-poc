@@ -1,0 +1,7 @@
+{
+  "port":9200,
+  "globalVars":{
+    "our_website_url": "http://tr.com",
+    "our_legal_rep": "123-123-1231"
+  }
+}
