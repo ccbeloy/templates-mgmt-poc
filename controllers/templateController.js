@@ -17,7 +17,12 @@ var templateController = function(templateService){
 		console.log(util.format("%s::getById -> enter method. Id: %s", LOG_CATEGORY, req.params.id));
 		templateService.getById(req.params.id, req.query)
 			.then(function(result){
-				res.json(result);
+				if(result){
+					responseHandler.okResponseHandler(result, req, res, next);
+				}
+				else{ //not found
+					responseHandler.notFoundHandler(req.params.id, req, res, next);
+				}
 			})
 			.catch(function(err){
 				next(err);

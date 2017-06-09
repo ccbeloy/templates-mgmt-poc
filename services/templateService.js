@@ -51,6 +51,9 @@ var templateService = function(database){
 
 			deferred.resolve(data);
 		}catch(err){
+			if(err.name && err.name === "DataError"){
+				deferred.resolve(null); //not found
+			}
 			deferred.reject(err);
 		}
 		return deferred.promise;

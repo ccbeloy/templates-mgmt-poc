@@ -72,6 +72,16 @@ var okResponseHandler = function (result, req, res, next) {
     }
 };
 
+var notFoundHandler = function (resource, req, res, next){
+    addCommonResponseHeaders(req, res);
+    res.status(HTTP_STATUS.NOT_FOUND);
+    res.json({
+        code: "NOT_FOUND",
+        message: "Resource not found"
+    });
+    res.end();
+}
+
 var addCommonResponseHeaders = function (req, res) {
     if (!res)
         return;
@@ -90,7 +100,8 @@ var responseHandlers = function () {
         unexpectedErrorHandler: unexpectedErrorHandler,
         badRequestErrorHandler: badRequestErrorHandler,
         okResponseHandler: okResponseHandler,
-        invalidRouteHandler: invalidRouteHandler
+        invalidRouteHandler: invalidRouteHandler,
+        notFoundHandler: notFoundHandler
     };
 };
 

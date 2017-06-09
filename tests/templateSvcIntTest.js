@@ -16,5 +16,13 @@ describe('Templates Service Integration Tests', function(){
                     }
                 });
         });
+
+        it('should return http 404', function(done){
+            agent.get('/templates/idnotexist')
+                .end(function(err, result){
+                    result.status.should.be.eql(404);
+                    done();
+                })
+        })
     })
 })
