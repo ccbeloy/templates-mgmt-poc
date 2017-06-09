@@ -5,8 +5,9 @@ This service uses a JSON file for its persistence for simplicity.
 ## Setup Instructions
 1. Install Node.js https://nodejs.org
 2. Run `npm install` on project root directory
-3. Service url will be http://localhost:9200/templates
-4. To run unit tests, `npm test` on project root directory
+3. Run `node app.js`
+4. Service url will be http://localhost:9200/templates
+5. To run unit tests, `npm test` on project root directory
 
 ## Supported REST APIs
 ### GET /templates
